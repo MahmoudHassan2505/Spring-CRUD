@@ -27,9 +27,19 @@ public class Patient {
             inverseJoinColumns = @JoinColumn(name = "drug_id",referencedColumnName = "id")
     )
     @JsonIgnore
-
     private List<Drug> drugs;
 
+    @ManyToOne
+    @JoinColumn(name = "hospital_id",referencedColumnName = "id")
+    private Hospital hospital;
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
 
     public int getId() {
         return id;
