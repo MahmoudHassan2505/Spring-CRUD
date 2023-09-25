@@ -19,6 +19,11 @@ public class DrugServices {
     @Autowired
     DrugRepo repository;
 
+    public DrugServices(){}
+
+    public DrugServices(DrugRepo repository) {
+        this.repository = repository;
+    }
 
     public List<Drug> listAll() {
         return repository.findAll();

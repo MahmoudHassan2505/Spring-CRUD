@@ -96,8 +96,8 @@ class DoctorServicesTest {
     @Test
     void Update_Success() {
         //arrange
-        Doctor newDoctor = new Doctor(1,"old Doctor",new Hospital(1,"hospital"));
-        Doctor oldDoctor = new Doctor(1,"new Doctor",new Hospital(1,"hospital"));
+        Doctor newDoctor = new Doctor(1,"new Doctor",new Hospital(1,"hospital"));
+        Doctor oldDoctor = new Doctor(1,"old Doctor",new Hospital(1,"hospital"));
         Mockito.when(doctorRepository.findById(any(Integer.class))).thenReturn(Optional.of(oldDoctor));
         Mockito.when(doctorRepository.saveAndFlush(any(Doctor.class))).thenReturn(newDoctor);
         //act
