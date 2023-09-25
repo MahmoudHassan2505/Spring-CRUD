@@ -33,6 +33,15 @@ public class Patient {
     @JoinColumn(name = "hospital_id",referencedColumnName = "id")
     private Hospital hospital;
 
+    public Patient(){}
+
+    public Patient(int id, String name, Doctor doctor, Hospital hospital) {
+        this.id = id;
+        this.name = name;
+        this.doctor = doctor;
+        this.hospital = hospital;
+    }
+
     public Hospital getHospital() {
         return hospital;
     }

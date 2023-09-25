@@ -27,6 +27,12 @@ public class Drug {
 
     private List<Patient> patients;
 
+    public Drug(){}
+
+    public Drug(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;

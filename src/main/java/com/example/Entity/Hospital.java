@@ -20,6 +20,12 @@ public class Hospital {
     @JsonIgnore
     List<Doctor> doctors;
 
+    public Hospital(){}
+
+    public Hospital(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;

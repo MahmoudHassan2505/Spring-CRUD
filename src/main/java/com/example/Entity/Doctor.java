@@ -27,6 +27,13 @@ public class Doctor {
     @JsonIgnore
     private List<Patient> patients;
 
+    public Doctor(){}
+
+    public Doctor(int id, String name, Hospital hospital) {
+        this.id = id;
+        this.name = name;
+        this.hospital = hospital;
+    }
 
     public int getId() {
         return id;
