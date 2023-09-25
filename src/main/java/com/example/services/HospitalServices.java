@@ -17,6 +17,12 @@ public class HospitalServices {
     @Autowired
     private HospitalRepo repository;
 
+    public HospitalServices(){}
+
+    public HospitalServices(HospitalRepo repository) {
+        this.repository = repository;
+    }
+
     public List<Hospital> listAll() {
         return repository.findAll();
     }
