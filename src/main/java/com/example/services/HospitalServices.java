@@ -26,22 +26,16 @@ public class HospitalServices {
     }
 
     public Hospital add(Hospital hospital) {
-        return repository.saveAndFlush(hospital);
+        try {
+            return repository.saveAndFlush(hospital);
+
+        }catch (Exception e){
+            throw new CustomException(CustomExceptionMessage.Error);
+        }
     }
 
     public void delete(int id) {
         repository.deleteById(id);
-    }
-
-    public List<Doctor> getDoctorsInHospital(int id) {
-        try {
-            List<Doctor> doctors = repository.findById(id).get().getDoctors();
-            return doctors;
-        } catch (NoSuchElementException e) {
-            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
-        }
-
-
     }
 
     public Hospital update(int id, Hospital newHospital) {
@@ -54,4 +48,11 @@ public class HospitalServices {
         }
     }
 
+    public List<Hospital> search(String name){
+        try {
+            return repository.search(name);
+        }catch (NoSuchElementException e){
+            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
+        }
+    }
 }

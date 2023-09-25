@@ -38,15 +38,15 @@ public class HospitalController {
         services.delete(id);
     }
 
-    @GetMapping("/{id}/doctors")
-    public List<Doctor> getDoctors(@PathVariable int id){
-        return services.getDoctorsInHospital(id);
-    }
-
     @PostMapping("/update/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Hospital update(@PathVariable int id,@RequestBody final Hospital hospital){
         return services.update(id,hospital);
+    }
+
+    @GetMapping("/search")
+    public List<Hospital> search(@RequestParam String name){
+        return services.search(name);
     }
 
 }

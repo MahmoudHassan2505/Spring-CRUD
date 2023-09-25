@@ -45,4 +45,9 @@ public class DrugController {
     public Drug update(@PathVariable int id,@RequestBody final Drug drug){
         return services.update(id,drug);
     }
+
+    @GetMapping("/search")
+    public List<Drug> search(@RequestParam String name){
+        return services.search(name);
+    }
 }

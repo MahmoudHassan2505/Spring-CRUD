@@ -29,7 +29,12 @@ public class DrugServices {
     }
 
     public Drug add(Drug drug) {
-        return repository.saveAndFlush(drug);
+        try {
+            return repository.saveAndFlush(drug);
+        }catch (Exception e){
+            throw new CustomException(CustomExceptionMessage.Error);
+        }
+
     }
 
     public void delete(int id) {
@@ -43,6 +48,14 @@ public class DrugServices {
             oldDrug.setName(newDrug.getName());
             return repository.saveAndFlush(oldDrug);
         } catch (NoSuchElementException e) {
+            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
+        }
+    }
+
+    public List<Drug> search(String name){
+        try {
+            return repository.search(name);
+        }catch (NoSuchElementException e){
             throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
         }
     }

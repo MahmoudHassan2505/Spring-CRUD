@@ -32,15 +32,10 @@ public class DoctorServices {
     }
 
     public Doctor add(Doctor doctor){
-        return repository.saveAndFlush(doctor);
-    }
-
-    public List<Patient> listPatient(int id) {
         try {
-            List<Patient> patients = repository.findById(id).get().getPatients();
-            return patients;
-        } catch (NoSuchElementException e) {
-            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
+            return repository.saveAndFlush(doctor);
+        }catch (Exception e){
+            throw new CustomException(CustomExceptionMessage.Error);
         }
 
     }
@@ -51,6 +46,14 @@ public class DoctorServices {
             oldDoctor.setName(newDoctor.getName());
             return repository.saveAndFlush(oldDoctor);
         } catch (NoSuchElementException e) {
+            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
+        }
+    }
+
+    public List<Doctor> search(String name){
+        try {
+            return repository.search(name);
+        }catch (NoSuchElementException e){
             throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
         }
     }

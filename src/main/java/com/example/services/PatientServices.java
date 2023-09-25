@@ -30,21 +30,16 @@ public class PatientServices {
     }
 
     public Patient add(Patient patient) {
-        return repository.saveAndFlush(patient);
+        try {
+            return repository.saveAndFlush(patient);
+        }catch (Exception e){
+            throw new CustomException(CustomExceptionMessage.Error);
+        }
+
     }
 
     public void delete(int id) {
         repository.deleteById(id);
-    }
-
-    public List<Drug> getDrugsInPatient(int id) {
-        try {
-            List<Drug> drugs = repository.findById(id).get().getDrugs();
-            return drugs;
-        } catch (NoSuchElementException e) {
-            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
-        }
-
     }
 
     public Patient update(int id, Patient newPatient) {
@@ -56,6 +51,12 @@ public class PatientServices {
             throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
         }
     }
-
+    public List<Patient> search(String name){
+        try {
+            return repository.search(name);
+        }catch (NoSuchElementException e){
+            throw new CustomException(CustomExceptionMessage.NO_SUCH_ELEMENT_WITH_THIS_ID);
+        }
+    }
 
 }

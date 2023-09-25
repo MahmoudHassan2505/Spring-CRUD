@@ -40,15 +40,13 @@ public class DoctorController {
         services.delete(id);
     }
 
-    @GetMapping("/{id}/patient")
-    public List<Patient> getPatients(@PathVariable int id) {
-
-        return services.listPatient(id);
-
-    }
-
     @PostMapping("/update/{id}")
     public Doctor update(@PathVariable int id, @RequestBody final Doctor doctor){
         return services.update(id,doctor);
+    }
+
+    @GetMapping("/search")
+    public List<Doctor> search(@RequestParam String name){
+        return services.search(name);
     }
 }
