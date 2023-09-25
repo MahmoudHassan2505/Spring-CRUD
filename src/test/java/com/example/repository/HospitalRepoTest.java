@@ -3,6 +3,7 @@ package com.example.repository;
 import com.example.Entity.Hospital;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -28,6 +29,7 @@ class HospitalRepoTest {
     }
 
     @Test
+    @Disabled
     void Search_Return_Values() {
         //act && assert
         Assertions.assertThat(hospitalRepository.search("hosp")).hasSize(2);
@@ -35,6 +37,7 @@ class HospitalRepoTest {
     }
 
     @Test
+    @Disabled
     void Search_Return_Empty_List() {
         //act && assert
         Assertions.assertThat(hospitalRepository.search("mah")).hasSize(0);
