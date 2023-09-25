@@ -20,6 +20,11 @@ public class PatientServices {
     @Autowired
     PatientRepo repository;
 
+    public PatientServices(){}
+
+    public PatientServices(PatientRepo repository) {
+        this.repository = repository;
+    }
 
     public List<Patient> listAll() {
         return repository.findAll();
