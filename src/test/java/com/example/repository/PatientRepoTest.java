@@ -40,7 +40,6 @@ class PatientRepoTest {
 
     }
     @Test
-    @Disabled
     void Search_Return_Values() {
         //act && arrange
         Assertions.assertThat(patientRepository.search("pat")).hasSize(2);
@@ -49,7 +48,6 @@ class PatientRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Empty_List() {
         //act && arrange
         Assertions.assertThat(patientRepository.search("mah")).hasSize(0);

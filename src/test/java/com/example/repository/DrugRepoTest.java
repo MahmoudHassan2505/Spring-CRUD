@@ -27,7 +27,6 @@ class DrugRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Values() {
         //act && assert
         Assertions.assertThat(drugRepository.search("Drug")).hasSize(2);
@@ -36,7 +35,6 @@ class DrugRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Empty_List() {
         //act && assert
         Assertions.assertThat(drugRepository.search("mah")).hasSize(0);

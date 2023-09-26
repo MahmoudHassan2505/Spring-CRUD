@@ -29,7 +29,6 @@ class HospitalRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Values() {
         //act && assert
         Assertions.assertThat(hospitalRepository.search("hosp")).hasSize(2);
@@ -37,7 +36,6 @@ class HospitalRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Empty_List() {
         //act && assert
         Assertions.assertThat(hospitalRepository.search("mah")).hasSize(0);

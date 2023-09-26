@@ -34,7 +34,6 @@ class DoctorRepoTest {
             doctorRepository.save(doctor2);
         }
         @Test
-        @Disabled
     void Search_Return_Values() {
         //act
         List<Doctor> doctors = doctorRepository.search("doc");
@@ -45,7 +44,6 @@ class DoctorRepoTest {
     }
 
     @Test
-    @Disabled
     void Search_Return_Empty_List(){
         //act && assert
         Assertions.assertThat(doctorRepository.search("mah")).hasSize(0);
