@@ -38,24 +38,27 @@ erDiagram
 
     
 ```
+=======
+
+<p align="center"><img src="https://github.com/MahmoudHassan2505/Spring-CRUD/assets/64662860/d9f4ed67-7c68-4816-b272-309085d43b20" width=250></p>
 
 ## Entities
 
 ### Hospital
 - Represents a hospital entity.
-- Contains properties such as id, name, address, etc.
+- Contains properties such as id, name.
 
 ### Doctor
 - Represents a doctor entity.
-- Contains properties such as id, name, specialization, etc.
+- Contains properties such as id, name,hospital_id.
 
 ### Drug
 - Represents a drug entity.
-- Contains properties such as id, name, dosage, etc.
+- Contains properties such as id, name,hospital_id,doctor_id.
 
 ### Patient
 - Represents a patient entity.
-- Contains properties such as id, name, age, etc.
+- Contains properties such as id, name.
 
 ## Controllers
 
@@ -132,10 +135,13 @@ docker build -t healthapp .
 6. Run the Spring Boot application inside a Docker container:
 
 ```bash
-docker run -p 9090:9090 --name healthapp-container --link postgres-container:postgres -d healthapp
-```
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=username -e POSTGRES_DB=dbname -v C:\postgres_container_data:/var/lib/postgresql/data --name=containername postgres```
 
-Note: Replace `postgres-container` with the name of your PostgreSQL container.
+Note: Replace `password` with the password of your PostgreSQL.
+
+Note: Replace `username` with the username of your PostgreSQL.
+
+Note: Replace `dbname` with the database name of your PostgreSQL.
 
 The application should now be running and accessible at `http://localhost:9090`.
 
