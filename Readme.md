@@ -39,24 +39,6 @@ erDiagram
     
 ```
 
-## Entities
-
-### Hospital
-- Represents a hospital entity.
-- Contains properties such as id, name.
-
-### Doctor
-- Represents a doctor entity.
-- Contains properties such as id, name,hospital_id.
-
-### Drug
-- Represents a drug entity.
-- Contains properties such as id, name,hospital_id,doctor_id.
-
-### Patient
-- Represents a patient entity.
-- Contains properties such as id, name.
-
 ## Controllers
 
 ### HospitalController
