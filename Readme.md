@@ -38,7 +38,6 @@ erDiagram
 
     
 ```
-=======
 
 <p align="center"><img src="https://github.com/MahmoudHassan2505/Spring-CRUD/assets/64662860/d9f4ed67-7c68-4816-b272-309085d43b20" width=250></p>
 
