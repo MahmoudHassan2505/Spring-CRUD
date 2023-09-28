@@ -4,7 +4,40 @@ This readme provides an overview of a Spring Boot application that includes four
 
 ## Entity Relationship Diagram(ERD)
 
-![Test](C:\Users\Mahmoud Ghania\Downloads\mermaid-diagram-2023-09-25-183417.png)
+```mermaid
+erDiagram
+    Hospital ||..|{ Doctors : Employ
+    Hospital ||--|{ Patient : Register
+    Doctors ||--|{ Patient : Treat
+  
+    Patient }|--|{ Drug : Take
+
+    Hospital{
+        bigint id
+        charatervarying name
+    }
+
+    Doctors{
+        bigint id
+        charatervarying name
+        bigint hospital_id
+    }
+
+    Patient{
+        bigint id
+        charatervarying name
+        bigint doctor_id
+        bigint hospital_id
+    }
+
+    Drug{
+        bigint id
+        charatervarying name
+    }
+
+
+    
+```
 
 ## Entities
 
